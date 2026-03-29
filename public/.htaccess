@@ -1,0 +1,47 @@
+RewriteEngine On
+
+########################################
+# 0. CANONICAL HOST + HTTPS
+########################################
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.hometown-catering\.com$ [NC]
+RewriteRule ^ https://hometown-catering.com%{REQUEST_URI} [R=301,L]
+
+########################################
+# 1. SEO REDIRECTS (Legacy to New)
+########################################
+# Redirects must come BEFORE the SPA fallback
+RewriteRule ^home/?$ / [R=301,L]
+RewriteRule ^about-us/?$ /about [R=301,L]
+RewriteRule ^contact-us/?$ /contact [R=301,L]
+RewriteRule ^services/?$ /menu [R=301,L]
+RewriteRule ^areas/?$ /menu [R=301,L]
+RewriteRule ^locations/?$ /menu [R=301,L]
+RewriteRule ^privacy/?$ /privacy-policy [R=301,L]
+RewriteRule ^thank-you-page/?$ /thank-you [R=301,L]
+
+########################################
+# 2. SEO CONTROL (Noindex for private / transactional pages)
+########################################
+<IfModule mod_headers.c>
+  SetEnvIf Request_URI "^(?:/auth|/dashboard|/thank-you)(?:/|$)" NOINDEX=1
+  Header set X-Robots-Tag "noindex, nofollow" env=NOINDEX
+</IfModule>
+
+########################################
+# 3. SERVE STATIC FILES
+########################################
+# Explicitly whitelist important SEO files to bypass SPA routing
+RewriteRule ^sitemap\.xml$ - [L]
+RewriteRule ^robots\.txt$ - [L]
+
+# If the requested filename exists as a file or directory, serve it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+########################################
+# 4. SPA FALLBACK
+########################################
+# All other requests are routed to index.html
+RewriteRule ^ index.html [L]

@@ -1,0 +1,17 @@
+# Hometown Catering - Charleston Ice Cream Truck
+# robots.txt for SEO optimization
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth
+Disallow: /dashboard
+Disallow: /thank-you
+Disallow: /*.json$
+
+# Sitemap location
+Sitemap: https://hometown-catering.com/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1

@@ -1,0 +1,15 @@
+diff --git a/htc-frontend/client/src/components/BookingFlow.tsx b/htc-frontend/client/src/components/BookingFlow.tsx
+index 81d4d30..d1f7503 100644
+--- a/htc-frontend/client/src/components/BookingFlow.tsx
++++ b/htc-frontend/client/src/components/BookingFlow.tsx
+@@ -348,10 +348,6 @@ export default function BookingFlow() {
+                                     <span className="font-medium">${result.quote.minimum.toFixed(2)}</span>
+                                 </div>
+                             )}
+-                            <div className="flex justify-between text-gray-400 text-[10px] italic">
+-                                <span>Taxes & Service Fees</span>
+-                                <span>Included</span>
+-                            </div>
+ 
+                             <div className="border-t border-gray-200 mt-3 pt-3 flex justify-between items-end">
+                                 <span className="font-bold text-base text-slate-dark">Estimated Total</span>
