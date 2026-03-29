@@ -32,7 +32,7 @@ export default function Navigation() {
     { path: "/contact", label: "Contact Us" },
     ...(user ? [{ path: "/dashboard", label: "My Bookings" }] : []),
     ...(!user ? [{ path: "/auth", label: "Login/Signup" }] : []),
-    { path: "/book", label: "Book Now", cta: true },
+    { path: "/booking", label: "Book Now", cta: true },
   ];
 
   return (
@@ -154,7 +154,7 @@ export default function Navigation() {
 
               {/* Book Now CTA */}
               <Link
-                to="/book"
+                to="/booking"
                 className="bg-bronze hover:bg-bronze/90 text-white px-5 py-2 rounded-full text-sm font-bold transition-all duration-200 shadow-sm"
               >
                 Book Now
@@ -201,7 +201,7 @@ export default function Navigation() {
             {user && <Link to="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 font-medium text-slate-dark">My Bookings</Link>}
             {!user && <Link to="/auth" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 font-medium text-slate-dark">Login/Signup</Link>}
 
-            <Link to="/book" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 font-bold text-white bg-bronze rounded-lg text-center mt-3">
+            <Link to="/booking" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 font-bold text-white bg-bronze rounded-lg text-center mt-3">
               Book Now
             </Link>
 

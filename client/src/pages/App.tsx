@@ -19,7 +19,7 @@ import { AuthProvider } from "@/hooks/use-auth";
 
 // New SEO Pages
 import ServiceAreas from "@/pages/service-areas";
-import BookPage from "@/pages/book";
+
 import WeddingsPage from "@/pages/weddings";
 import CorporateEventsPage from "@/pages/corporate-events";
 import AdultCocktailPopsPage from "@/pages/adult-cocktail-pops";
@@ -44,7 +44,7 @@ function AppRouter() {
 
       {/* SEO Landing Pages */}
       <Route path="/service-areas" element={<ServiceAreas />} />
-      <Route path="/book" element={<BookPage />} />
+
       <Route path="/weddings" element={<WeddingsPage />} />
       <Route path="/corporate-events" element={<CorporateEventsPage />} />
       <Route path="/adult-cocktail-pops" element={<AdultCocktailPopsPage />} />
